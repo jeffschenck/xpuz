@@ -1072,7 +1072,7 @@ PUZParser.prototype = Object.create(Object.prototype, {
 						grid: puzzleData.grid,
 						clues: puzzleData.clues,
 						userSolution: _unflattenSolution(puzzleData.solution, puzzleData.header.width),
-						extensions: puzzleData._extensions
+						extensions: puzzleData._extensions || {}
 					};
 					puzzleDefinition.extensions.timing = puzzleData.timing;
 
