@@ -183,7 +183,7 @@ function _readExtension(reader) {
 
 	var length;
 
-	extension.extensionName = reader._readString(4);
+	extension.name = reader._readString(4);
 
 	length = reader._readUInt16();
 
@@ -1072,10 +1072,9 @@ PUZParser.prototype = Object.create(Object.prototype, {
 						grid: puzzleData.grid,
 						clues: puzzleData.clues,
 						userSolution: _unflattenSolution(puzzleData.solution, puzzleData.header.width),
-						extensions: {
-							timing: puzzleData.timing
-						}
+						extensions: puzzleData._extensions
 					};
+					puzzleDefinition.extensions.timing = puzzleData.timing;
 
 					deferred.resolve(new Puzzle(puzzleDefinition));
 				}
